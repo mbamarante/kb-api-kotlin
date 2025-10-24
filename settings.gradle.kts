@@ -1,3 +1,4 @@
+// Settings
 rootProject.name = "kb-api-kotlin"
 
 include("domain")

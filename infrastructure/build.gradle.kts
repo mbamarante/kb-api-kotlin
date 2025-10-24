@@ -1,3 +1,4 @@
+// Infrastructure
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring") version "2.0.21"
@@ -13,6 +14,10 @@ dependencies {
 
     // --- PostgreSQL driver ---
     runtimeOnly("org.postgresql:postgresql")
+
+    // --- Flyway Migration ---
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
 
     // --- Coroutines Kotlin ---
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")

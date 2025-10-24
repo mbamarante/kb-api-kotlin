@@ -1,3 +1,4 @@
+// Domain
 plugins {
     kotlin("jvm")
 }

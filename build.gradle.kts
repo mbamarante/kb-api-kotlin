@@ -1,3 +1,4 @@
+// Root
 plugins {
     // 🔹 Registramos os plugins principais, mas sem aplicá-los aqui
     id("org.springframework.boot") version "3.5.7" apply false

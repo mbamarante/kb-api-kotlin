@@ -1,3 +1,4 @@
+// 🔧 Application
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring") version "2.0.21"
