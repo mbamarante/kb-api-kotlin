@@ -1,0 +1,15 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/kb
+    username: kbuser
+    password: kbpass
+
+  # evita execução de scripts SQL automáticos
+  sql:
+    init:
+      mode: never
+
+logging:
+  level:
+    org.springframework.r2dbc.connection: DEBUG
+    io.r2dbc.postgresql: DEBUG
