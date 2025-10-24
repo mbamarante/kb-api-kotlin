@@ -12,7 +12,8 @@ class CreateUserUseCase(
         val user = User(
             id = null,
             name = input.name,
-            email = input.email
+            email = input.email,
+            password = input.password,
         )
         val saved = repository.save(user)
         return UserOutput(

@@ -3,6 +3,7 @@ plugins {
     id("io.spring.dependency-management")
     kotlin("jvm")
     kotlin("plugin.spring")
+    kotlin("kapt")
 }
 
 group = "br.dev.io.presentation"
@@ -67,6 +68,13 @@ dependencies {
 
     // --- ArchUnit (opcional) ---
     testImplementation("com.tngtech.archunit:archunit-junit5:1.3.0")
+
+    // ✅ MapStruct
+    implementation("org.mapstruct:mapstruct:1.6.2")
+    kapt("org.mapstruct:mapstruct-processor:1.6.2")
+
+    // ✅ Necessário para integração com Spring
+    kaptTest("org.mapstruct:mapstruct-processor:1.6.2")
 }
 
 tasks.withType<Test> {

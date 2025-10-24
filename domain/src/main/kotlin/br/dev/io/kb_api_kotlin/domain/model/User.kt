@@ -3,10 +3,12 @@ package br.dev.io.kb_api_kotlin.domain.model
 data class User(
     val id: Long? = null,
     val name: String,
-    val email: String
+    val email: String,
+    val password: String,
 ) {
     init {
         require(name.isNotBlank()) { "Name cannot be blank" }
+        require(password.isNotBlank()) { "Password cannot be blank" }
         require(email.matches(Regex("^[A-Za-z0-9+_.-]+@(.+)$"))) {
             "Invalid email format"
         }

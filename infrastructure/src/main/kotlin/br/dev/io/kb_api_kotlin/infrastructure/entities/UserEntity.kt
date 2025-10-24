@@ -16,6 +16,9 @@ open class UserEntity() {
     @Column(nullable = false, unique = true)
     open var email: String = ""
 
+    @Column(nullable = false)
+    open var password: String = ""
+
     // --- Construtor secundário para conveniência ---
     constructor(id: Long?, name: String, email: String) : this() {
         this.id = id
@@ -26,7 +29,8 @@ open class UserEntity() {
     fun toDomain(): User = User(
         id = id,
         name = name,
-        email = email
+        email = email,
+        password = "" // Password is not stored in the entity for security reasons
     )
 
     companion object {

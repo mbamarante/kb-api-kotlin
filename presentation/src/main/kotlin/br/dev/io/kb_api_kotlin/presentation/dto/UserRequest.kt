@@ -2,5 +2,6 @@ package br.dev.io.kb_api_kotlin.presentation.dto
 
 data class UserRequest(
     val name: String,
-    val email: String
+    val email: String,
+    val password: String
 )
