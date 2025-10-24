@@ -1,8 +1,11 @@
 package br.dev.io.kb_api_kotlin.presentation
 
-import br.dev.io.kb_api_kotlin.application.dto.*
-import br.dev.io.kb_api_kotlin.application.usecases.*
-import br.dev.io.kb_api_kotlin.presentation.dto.*
+import br.dev.io.kb_api_kotlin.application.usecases.CreateUserUseCase
+import br.dev.io.kb_api_kotlin.application.usecases.GetUsersUseCase
+import br.dev.io.kb_api_kotlin.presentation.dto.UserRequest
+import br.dev.io.kb_api_kotlin.presentation.dto.UserResponse
+import br.dev.io.kb_api_kotlin.presentation.mapper.UserMapper.toInput
+import br.dev.io.kb_api_kotlin.presentation.mapper.UserMapper.toResponse
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
@@ -25,7 +28,4 @@ class UserController(
     @PostMapping
     fun create(@RequestBody request: UserRequest): UserResponse =
         createUserUseCase.execute(request.toInput()).toResponse()
-
-    private fun UserOutput.toResponse() = UserResponse(id, name, email)
-    private fun UserRequest.toInput() = UserInput(name, email)
 }
