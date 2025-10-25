@@ -17,4 +17,7 @@ dependencies {
 
     // --- Database ---
     runtimeOnly("org.postgresql:postgresql")
+
+    // BCryptPasswordEncoder e PasswordEncoder
+    implementation("org.springframework.security:spring-security-crypto")
 }
