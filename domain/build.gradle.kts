@@ -1,8 +1,10 @@
-// Domain
+// domain module build script
 plugins {
     kotlin("jvm")
 }
 
-dependencies {
-    implementation(kotlin("stdlib"))
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }

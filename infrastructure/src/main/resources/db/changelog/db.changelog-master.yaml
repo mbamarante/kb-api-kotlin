@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: maicon
+      changes:
+        - sqlFile:
+            path: db/changelog/sql/V1__create_users_table.sql
+            relativeToChangelogFile: false
+
+  - changeSet:
+      id: 2
+      author: maicon
+      changes:
+        - sqlFile:
+            path: db/changelog/sql/V2__add_password_column.sql
+            relativeToChangelogFile: false

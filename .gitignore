@@ -41,3 +41,9 @@ out/
 
 ### JDK ###
 .jdk
+
+/build/
+**/build/
+**/.gradle/
+**/.idea/
+**/bin/

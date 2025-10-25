@@ -1,1 +1,0 @@
-UPDATE users SET password = 'temp123456' where password = 'temp123';

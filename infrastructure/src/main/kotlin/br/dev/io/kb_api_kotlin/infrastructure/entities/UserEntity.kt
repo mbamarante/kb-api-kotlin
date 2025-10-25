@@ -20,21 +20,22 @@ open class UserEntity() {
     open var password: String = ""
 
     // --- Construtor secundário para conveniência ---
-    constructor(id: Long?, name: String, email: String) : this() {
+    constructor(id: Long?, name: String, email: String, password: String) : this() {
         this.id = id
         this.name = name
         this.email = email
+        this.password = password
     }
 
     fun toDomain(): User = User(
         id = id,
         name = name,
         email = email,
-        password = "" // Password is not stored in the entity for security reasons
+        password = password
     )
 
     companion object {
         fun fromDomain(user: User): UserEntity =
-            UserEntity(user.id, user.name, user.email)
+            UserEntity(user.id, user.name, user.email, user.password)
     }
 }

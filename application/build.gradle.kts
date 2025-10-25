@@ -1,41 +1,21 @@
-// 🔧 Application
+// application/build.gradle.kts
 plugins {
     kotlin("jvm")
-    kotlin("plugin.spring") version "2.0.21"
-    id("io.spring.dependency-management") version "1.1.7"
+    kotlin("kapt")
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
 dependencies {
     implementation(project(":domain"))
 
-    // --- Spring Core ---
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("com.tngtech.archunit:archunit-junit5:1.3.0")
 
-    // --- Corrotinas Kotlin ---
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
-
-    // --- Testes ---
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-dependencyManagement {
-    imports {
-        // 🧩 Herda as versões oficiais do Spring Boot
-        mavenBom("org.springframework.boot:spring-boot-dependencies:3.5.7")
-    }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
-// ✅ Garante que o jar padrão seja gerado
-tasks.matching { it.name == "jar" }.configureEach {
-    enabled = true
+    // MapStruct (se estiveres usando DTOs aqui)
+    implementation("org.mapstruct:mapstruct:1.6.2")
+    kapt("org.mapstruct:mapstruct-processor:1.6.2")
 }
